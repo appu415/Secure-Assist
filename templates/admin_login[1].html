@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureAssist Admin Login</title>
+    <style>
+        body { background: #0a0a0a; color: #0f0; font-family: monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { border: 1px solid #0f0; padding: 30px; background: #111; box-shadow: 0 0 15px rgba(0,255,0,0.2); }
+        input { display: block; width: 250px; margin: 10px 0; background: #000; border: 1px solid #333; color: #0f0; padding: 10px; }
+        button { background: #0f0; color: #000; border: none; padding: 10px; width: 100%; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>ACCESS_RESTRICTED</h2>
+        <form action="/admin" method="POST">
+            <input type="text" name="user" placeholder="USERNAME" required>
+            <input type="password" name="pass" placeholder="PASSWORD" required>
+            <button type="submit">AUTHENTICATE</button>
+        </form>
+        <p style="font-size: 10px; color: #444; margin-top: 15px;">IP_LOGGING_ENABLED: TRUE</p>
+    </div>
+</body>
+</html>
