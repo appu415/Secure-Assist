@@ -37,4 +37,5 @@ function addMessage(text, type) {
     div.innerHTML = html;
     box.appendChild(div);
     box.scrollTop = box.scrollHeight;
+
 }
