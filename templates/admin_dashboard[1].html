@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Audit Dashboard</title>
+    <style>
+        body { background: #0a0a0a; color: #0f0; font-family: sans-serif; padding: 40px; }
+        h2 { border-bottom: 2px solid #0f0; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; color: #ccc; }
+        th { text-align: left; color: #0f0; border-bottom: 1px solid #333; padding: 10px; }
+        td { padding: 10px; border-bottom: 1px solid #222; font-size: 14px; }
+        .delete-btn { color: #ff4444; text-decoration: none; font-weight: bold; border: 1px solid #ff4444; padding: 3px 8px; border-radius: 3px; }
+        .delete-btn:hover { background: #ff4444; color: #fff; }
+        .nav { margin-bottom: 20px; }
+        .nav a { color: #0f0; text-decoration: none; margin-right: 20px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">← Return to Terminal</a>
+        <a href="/admin" style="color: #666;">Logout</a>
+    </div>
+    <h2>SYSTEM_INTERACTION_AUDIT</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>TIMESTAMP</th>
+                <th>USER_QUERY</th>
+                <th>AI_RESPONSE</th>
+                <th>MODEL_USED</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.timestamp }}</td>
+                <td style="color: #0f0;">{{ log.user_query }}</td>
+                <td>{{ log.ai_response[:100] }}...</td>
+                <td><small>{{ log.store_name }}</small></td>
+                <td><a href="/admin/delete/{{ log.id }}" class="delete-btn">DELETE</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
