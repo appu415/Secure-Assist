@@ -1,0 +1,124 @@
+## SecureAssist Enterprise Knowledge Base (10 Domains)
+
+### 1. Identity and Access Management (IAM) Policies (12 Points)
+1.  **Password Policy:** All user passwords must be a minimum of 14 characters, containing a mix of upper, lower, numbers, and symbols. Passphrases are highly encouraged.
+2.  **Password Rotation:** Passwords must be rotated every 90 days for administrative and privileged accounts; standard user passwords expire every 180 days.
+3.  **Password History:** Users are prohibited from reusing the last five previously used passwords.
+4.  **2FA Policy:** Two-Factor Authentication (2FA) is mandatory for all accounts accessing the CRM, financial systems, and cloud portals.
+5.  **2FA Setup:** Enable 2FA via Settings > Security > Enable Multi-Factor. Use an approved FIDO2 token or TOTP app (Authy, Google Authenticator).
+6.  **Account Lockout:** Accounts are locked after 5 consecutive failed login attempts and require a manual reset via the IT helpdesk.
+7.  **Account Inactivity:** Accounts inactive for 90 days will be automatically disabled and archived after 6 months.
+8.  **Least Privilege:** All employee accounts operate on the principle of Least Privilege; access is granted only for the specific tasks required by the role.
+9.  **Vendor Access:** Third-party vendor access is reviewed quarterly and uses time-limited, audited credentials.
+10. **Emergency Access:** Break-glass accounts are physically secured, credentials are stored in a secure vault, and use requires dual authorization.
+11. **Password Manager:** Employees must use the corporate-approved password manager (LastPass Enterprise) for all work-related credentials.
+12. **Offboarding:** Access revocation for departing employees must occur within one hour of notification.
+
+### 2. Threat Detection and Incident Response (10 Points)
+13. **Incident Definition:** A security incident is any violation or imminent threat of violation of security policies, acceptable use policies, or standard security practices.
+14. **Reporting Policy:** All potential incidents must be reported immediately via the IT Security Hotline at 1-800-888-DANGER.
+15. **Zero Trust Principle:** All internal and external network traffic is treated as hostile until authenticated and authorized (Zero Trust Model). 
+
+[Image of Zero Trust Architecture Diagram]
+
+16. **Phishing Reporting:** Suspicious emails must be forwarded to security@secureassist.com and then deleted.
+17. **Response Tiers:** Incidents are categorized into three tiers (Critical, High, Medium) determining response time and team involvement.
+18. **Containment:** The first step in incident response is isolation; affected systems must be disconnected from the network immediately.
+19. **Forensics Data:** Logs and evidence related to a breach must be immutable and preserved for at least 180 days.
+20. **Root Cause Analysis (RCA):** An RCA must be completed for every High or Critical incident within 14 days of resolution.
+21. **Vulnerability Disclosure:** All discovered vulnerabilities must be reported to the security team immediately and remain confidential until patched.
+22. **Communication During Incident:** External communication about a security incident must be handled exclusively by the Corporate Communications team.
+
+### 3. Network and Infrastructure Security (10 Points)
+23. **Network Segmentation:** The network is segmented into isolated VLANs for production, development, corporate, and guest access.
+24. **Firewall Rules:** All external traffic is denied by default; only explicitly permitted ports (e.g., 443, 80, 22/bastion) are allowed inbound.
+25. **VPN Requirement:** Remote access to the corporate network is strictly enforced through the corporate VPN using multi-factor authentication.
+26. **Intrusion Detection:** All network segments are monitored by an Intrusion Detection System (IDS) which alerts the SOC team.
+27. **Wireless Security:** Corporate Wi-Fi uses WPA3-Enterprise protocol for encryption and user authentication.
+28. **Patching Policy:** Critical security patches must be applied to production servers within 7 days of release.
+29. **Disaster Recovery (DR):** Full system backups are performed nightly and stored off-site. DR testing occurs biannually.
+30. **Cloud Security:** All cloud resources (AWS/Azure) are secured using infrastructure-as-code and subject to automated compliance checks.
+31. **DDoS Mitigation:** External services are protected by a cloud-based Distributed Denial-of-Service (DDoS) mitigation service.
+32. **Remote Desktop:** Remote Desktop Protocol (RDP) access is prohibited except through a secured jump box or bastion host.
+
+### 4. Application Security (10 Points)
+33. **Secure Coding:** All application code must adhere to the OWASP Top 10 guidelines and undergo peer review.
+34. **SQL Injection (SQLi) Prevention:** Developers must use parameterized queries (prepared statements) for all database interactions.
+35. **Cross-Site Scripting (XSS) Prevention:** Output encoding must be used for all user-supplied data displayed on web pages.
+36. **Input Validation:** All user input must be validated, sanitized, and subject to whitelist filtering on the server side.
+37. **Security Testing:** Critical applications must undergo an external penetration test annually.
+38. **Sensitive Data Storage:** Sensitive user data must be encrypted both in transit (TLS 1.2+) and at rest (AES-256).
+39. **API Security:** All APIs must use OAuth 2.0 or API key authentication and enforce rate limiting.
+40. **Dependency Scanning:** Automated tools must scan all third-party libraries for known vulnerabilities (CVEs) before deployment.
+41. **Logging:** Application security events (logins, failures, data access) must be logged centrally and retained for 90 days.
+42. **Error Handling:** Application error messages must be generic and never reveal sensitive system or database details.
+
+### 5. Types of Cyber Attacks (General Knowledge) (10 Points)
+43. **Phishing:** Social engineering attack where attackers trick users into revealing information via fraudulent emails, texts, or websites.
+44. **Ransomware:** Malware that encrypts a victim's files or entire system, demanding a ransom (usually cryptocurrency) for the decryption key.
+45. **Denial-of-Service (DoS):** An attack intended to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet.
+46. **Man-in-the-Middle (MITM):** An attack where the attacker secretly relays and alters the communication between two parties who believe they are directly communicating with each other.
+47. **Malware:** Software specifically designed to disrupt, damage, or gain unauthorized access to a computer system. Includes viruses, worms, and Trojans.
+48. **Zero-Day Exploit:** A threat that exploits an unknown or unaddressed vulnerability in computer software or hardware.
+49. **Supply Chain Attack:** Attacks that aim to compromise software or hardware at the manufacturing or distribution stage before it reaches the end user.
+50. **Insider Threat:** A threat to an organization that comes from people within the organization, such as employees, contractors, or business partners.
+51. **Brute Force Attack:** A trial-and-error method used to guess login information, encryption keys, or find a hidden web page.
+52. **Session Hijacking:** Exploiting a web session control mechanism to gain unauthorized access to information or services in a computing system.
+
+### 6. Data Encryption and Privacy (10 Points)
+53. **Data at Rest:** All sensitive data stored in databases, file systems, or cloud storage must use AES-256 encryption.
+54. **Data in Transit:** All network communication carrying sensitive data must use TLS 1.2 or higher for encryption.
+55. **Encryption Keys:** Encryption keys are stored in a dedicated Key Management Service (KMS) and rotated annually.
+56. **GDPR Compliance:** Customer data for EU citizens is processed and stored in accordance with the General Data Protection Regulation (GDPR).
+57. **PCI DSS Compliance:** Payment card data is handled according to Payment Card Industry Data Security Standard (PCI DSS) requirements, avoiding local storage.
+58. **Data Masking:** Non-production environments (testing, development) must use masked or synthetic data that retains realistic structure but contains no real customer PII.
+59. **Data Retention:** Customer PII (Personally Identifiable Information) is automatically purged from active systems 7 years after account closure.
+60. **Privacy by Design:** All new products and features must incorporate privacy considerations from the initial design phase.
+61. **Data Backups:** All backups containing confidential data must also be encrypted.
+62. **Data Minimization:** Only data strictly necessary for business operations should be collected and retained.
+
+### 7. End-User Device Security (10 Points)
+63. **Antivirus Software:** All corporate laptops and desktops must run the centralized, managed Endpoint Detection and Response (EDR) solution.
+64. **Automatic Updates:** Operating system and core application updates (browsers, productivity suites) must be enabled for automatic installation.
+65. **Full Disk Encryption:** All company-issued laptops must use Full Disk Encryption (e.g., BitLocker or FileVault).
+66. **Screen Lock:** Devices must automatically lock the screen after 5 minutes of inactivity and require a password/biometric to unlock.
+67. **Personal Software:** Employees are prohibited from installing unauthorized personal software on company equipment.
+68. **Physical Security:** Laptops must be secured with a cable lock in the office and never left unattended in public places.
+69. **Removable Media:** Use of external USB drives and removable media requires explicit approval from IT security.
+70. **Mobile Device Management (MDM):** All corporate mobile devices are managed via MDM software to enforce security policies and remote wipe capability.
+71. **Home Network:** Employees working from home must ensure their home router uses a strong Wi-Fi password (WPA2 or WPA3).
+72. **Browser Plugins:** Only approved, essential browser extensions are permitted; unknown or suspicious extensions must be removed.
+
+### 8. Auditing and Monitoring (8 Points)
+73. **Security Audits:** Internal security audits are performed quarterly, and external compliance audits are conducted annually.
+74. **Log Retention:** All security-relevant logs (authentication, network traffic, server access) are retained for 180 days in a centralized SIEM system.
+75. **Alert Escalation:** Critical security alerts are automatically escalated via SMS and email to the on-call security engineer 24/7.
+76. **User Behavior Analytics (UBA):** Systems monitor user activities for anomalies, such as abnormal data downloads or login attempts from unusual locations.
+77. **Access Reviews:** Access privileges for all employees are formally reviewed by their manager every 6 months.
+78. **System Health:** Monitoring includes tracking CPU load, disk usage, and network latency to detect potential compromises or DoS attempts.
+79. **Vulnerability Scanning:** External and internal vulnerability scans are performed monthly to identify unpatched systems.
+80. **Policy Review:** The security policy document itself is reviewed and updated by the security committee every 12 months.
+
+### 9. Social Engineering Defense (8 Points)
+81. **Vishing:** Never give sensitive information (passwords, PINs) over the phone unless you initiated the call and verified the recipient's identity.
+82. **Pretexting:** If someone claims to be from IT or a vendor and asks for sensitive data, politely end the call and call them back on a known, official number.
+83. **Tailgating:** Employees must not allow unescorted individuals to follow them into secure areas; always challenge unknown persons.
+84. **Email Verification:** Always hover over a link to verify the true destination URL before clicking. Check the sender's actual email address.
+85. **Urgency/Threat:** Treat any communication creating a sense of extreme urgency or threat (e.g., "Your account will be suspended in 5 minutes") as highly suspicious.
+86. **Data Sharing:** Never share your personal or company information on social media that could be used for security question answers.
+87. **Document Shredding:** All confidential paper documents must be securely shredded using cross-cut shredders.
+88. **Security Awareness:** All employees must complete mandatory annual security awareness training.
+
+### 10. Cybersecurity Terminology and Definitions (12 Points)
+89. **CISO:** Chief Information Security Officer, the senior executive responsible for an organization's security strategy.
+90. **SOC:** Security Operations Center, the centralized unit that handles security incidents and monitoring.
+91. **Penetration Test (Pen Test):** An authorized simulated cyberattack on a computer system performed to evaluate the security of the system.
+92. **Exploit:** Software or a sequence of commands that takes advantage of a bug or vulnerability to cause unintended behavior in software or hardware.
+93. **Vulnerability:** A weakness in the system security procedures, design, implementation, or internal controls that could be exploited.
+94. **Risk:** The probability that a threat will exploit a vulnerability and the impact of that event.
+95. **Security Baseline:** The minimum set of required security controls for a system or application.
+96. **Threat Actor:** An individual or group that poses a risk to an organization's security (e.g., hackers, nation-states).
+97. **Threat Modeling:** A structured process for identifying potential security threats, quantifying their severity, and prioritizing mitigation efforts.
+98. **Incident Triage:** The process of quickly analyzing security alerts to determine their severity and priority for response.
+99. **Cloud Security Posture Management (CSPM):** Tools that identify misconfigurations and risks in cloud environments.
+100. **Governance, Risk, and Compliance (GRC):** The umbrella term covering an organization's approach across these three areas.
