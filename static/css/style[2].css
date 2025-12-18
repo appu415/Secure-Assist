@@ -1,0 +1,183 @@
+/* --- GLOBAL STYLES --- */
+body {
+    background-color: #050505; /* Deep black */
+    color: #00ff00;            /* Classic Matrix green */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow: hidden;         /* Prevents overall page scroll */
+}
+
+/* --- MAIN LAYOUT --- */
+.container {
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* --- CHAT SECTION --- */
+.chat-area {
+    flex: 2;
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    background: #002b5c; /* Dark Navy for header */
+    color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00ff00;
+}
+
+.admin-link {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-link:hover {
+    color: #00ff00;
+}
+
+/* --- CHAT MESSAGES AREA --- */
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 120px; /* Space for the floating input */
+}
+
+/* Custom Scrollbar for Chat */
+.chat-box::-webkit-scrollbar { width: 5px; }
+.chat-box::-webkit-scrollbar-track { background: #000; }
+.chat-box::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 5px; }
+
+.message {
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    max-width: 80%;
+    line-height: 1.5;
+    font-size: 0.95em;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: #003300;
+    color: #e0ffe0;
+    align-self: flex-end;
+    border: 1px solid #005500;
+}
+
+.assistant-message {
+    background: #1a1a1a;
+    color: #cccccc;
+    align-self: flex-start;
+    border-left: 4px solid #00ff00;
+}
+
+/* --- BADGES --- */
+.badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.internal { background: #00ff00; color: #000; }
+.global { background: #bc00ff; color: #fff; }
+
+/* --- FLOATING BOTTOM INPUT --- */
+.chat-input {
+    position: fixed;
+    bottom: 30px;
+    left: 40%; /* Adjusted for the split view */
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    padding: 10px;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #333;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 10px rgba(0, 255, 0, 0.1);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+#user-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    padding: 12px 20px;
+    font-size: 1em;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    background: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #ffffff;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+/* --- SYSTEM CONSOLE (SIDE PANEL) --- */
+.system-console {
+    flex: 1;
+    background: #000000;
+    border: 1px solid #00ff00;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.console-head {
+    color: #00ff00;
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#console-out {
+    overflow-y: auto;
+    color: #00cc00;
+    line-height: 1.4;
+}
